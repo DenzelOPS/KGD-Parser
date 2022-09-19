@@ -1,0 +1,4 @@
+selenium==4.2.0
+webdriver-manager==3.8.3
+patool==1.12
+rarfile==4.0
