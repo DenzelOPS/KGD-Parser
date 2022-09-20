@@ -177,7 +177,7 @@ def read_insert(downloaded_files):#читает и записывает в sqlit
         print(ws.max_column,file)
         add_to_db=False
         for x in range(1,ws.max_row+1):
-            if type(ws[f"B{x}"].value)!=type(None) and "о возбуждении" not in str(ws[f"B{x}"].value):
+            if type(ws[f"B{x}"].value)!=type(None) and "временному управляющему" not in str(ws[f"B{x}"].value):
                 header_row=x
                 break
         last_column_letter= 0
