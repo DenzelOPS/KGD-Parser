@@ -113,15 +113,16 @@ def parse_url(url):#парсит сайт
                             except:
                                 pass
                         for el in parentElement_download:
-                            if el.text.endswith('кредиторами временному управляющему'):
+                            if el.text.endswith('кредиторами временному управляющему') or el.text.endswith('кредиторами временному управляющему.'):
                                 #print(el.text)
+				typee=1 if el.text.endswith('кредиторами временному управляющему') else 0
                                 result = None
                                 href=el.get_attribute('href')
                                 while result is None:
                                     try:
                                         driver.get(href)
                                         time.sleep(5)
-                                        el.text.endswith('кредиторами временному управляющему')
+                                        el.text.endswith('кредиторами временному управляющему') if typee==1 else el.text.endswith('кредиторами временному управляющему.')
                                         #print(3,result)
                                         result=1
                                     except:
