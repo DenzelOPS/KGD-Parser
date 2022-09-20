@@ -63,13 +63,21 @@ def parse_url(url):#парсит сайт
         #print(el.text.lower())
         if "юридическим лицам" in el.text.lower():
             el.click()
+	    time.sleep(2)
             break
     element=driver.find_element_by_xpath("// a[contains(text(),'Реабилитация и банкротство')]")
     action = ActionChains(driver)
     action.double_click(on_element = element)
     action.perform()
     time.sleep(5)
-    element=driver.find_element_by_class_name("catmenu").text
+    try:
+    	element=driver.find_element_by_class_name("catmenu").text
+    except:
+	element=driver.find_element_by_xpath("// a[contains(text(),'Реабилитация и банкротство')]")
+	action = ActionChains(driver)
+	action.double_click(on_element = element)
+	action.perform()
+	element=driver.find_element_by_class_name("catmenu").text
     #driver.execute_script("window.history.go(-1)")#back
     element=element.split("\n")
     years=[]
