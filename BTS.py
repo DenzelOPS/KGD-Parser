@@ -113,7 +113,7 @@ def parse_url(url):#парсит сайт
                             except:
                                 pass
                         for el in parentElement_download:
-                            if el.text.endswith('кредиторами временному управляющему') or el.text.endswith('кредиторами временному управляющему.'):
+                            if ''.join([i for i in el.text if not i.isdigit()]).replace( '.', '').strip().endswith('кредиторами временному управляющему'):
                                 #print(el.text)
 				typee=1 if el.text.endswith('кредиторами временному управляющему') else 0
                                 result = None
